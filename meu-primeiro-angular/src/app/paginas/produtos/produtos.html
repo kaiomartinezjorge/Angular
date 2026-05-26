@@ -1,0 +1,29 @@
+<section class="border p-3 my-3">
+  <h3>Demonstração Prática de Eventos</h3>
+
+  <input type="text"
+         class="form-control mb-2"
+         (keyup)="onKeyUp($event)"
+         (keyup.enter)="salvarValor(campoInput.value)"
+         (blur)="salvarValor(campoInput.value)"
+         #campoInput>
+
+  <p>Valor digitado em tempo real: <strong>{{ ValorAtual }}</strong></p>
+
+  <p>Valor salvo (pressione Enter ou clique fora do campo): <strong>{{ ValorSalvo }}</strong></p>
+
+  <hr>
+
+  <span class="p-2 d-inline-block transition"
+        (mouseover)="alternarDestaque()"
+        (mouseout)="alternarDestaque()"
+        [class.bg-warning]="isMouseOver"
+        [class.text-dark]="isMouseOver">
+    Passe o mouse sobre esta região para destacar.
+  </span>
+
+  <hr>
+
+  <button class="btn btn-success" (click)="incrementar()">Incrementar Contador</button>
+  <p class="mt-2">Cliques totais: <span class="badge bg-dark">{{ contador }}</span></p>
+</section>
