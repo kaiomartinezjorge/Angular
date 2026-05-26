@@ -1,1 +1,32 @@
-<p>contatos works!</p>
+<section class="border p-3 my-3">
+  <h3>Entre em Contato</h3>
+
+  <input type="text"
+         class="form-control mb-2"
+         placeholder="Digite seu nome"
+         (keyup)="onKeyUp($event)"
+         #campoNome>
+
+  <input type="email"
+         class="form-control mb-2"
+         placeholder="Digite seu email"
+         (keyup)="onKeyUpEmail($event)"
+         #campoEmail>
+
+  <textarea class="form-control mb-2"
+            rows="4"
+            placeholder="Digite sua mensagem"
+            (keyup)="onKeyUpMensagem($event)"
+            (keyup.enter)="salvarValor(campoMensagem.value)"
+            (blur)="salvarValor(campoMensagem.value)"
+            #campoMensagem></textarea>
+
+  <p>Nome digitado: <strong>{{ nome }}</strong></p>
+  <p>Email digitado: <strong>{{ email }}</strong></p>
+  <p>Mensagem digitada: <strong>{{ mensagem }}</strong></p>
+
+  <hr>
+
+  <button class="btn btn-primary" (click)="salvarValor(campoMensagem.value)">Enviar</button>
+  <p class="mt-2">Mensagem salva: <strong>{{ valorsalvo }}</strong></p>
+</section>
