@@ -1,0 +1,18 @@
+<section class="listar-vagas">
+  <!-- property data binding ngfor -->
+   <!-- nova ferramenta @for -->
+  @for (item of vagas; track item.id){
+    <div>
+      <div class="card">
+        <img src="assets/img/vagas/{{item.foto}}" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Código da Vaga: {{item.id}}</h5>
+          <h5 class="card-title">Vaga: {{item.nome}}</h5>
+          <p class="card-text">Descrição da Vaga: {{item.descricao}}</p>
+          <p class="card-text">Salário: R$ {{item.salario}}</p>
+
+        </div>
+      </div>
+    </div>
+  }
+</section>
