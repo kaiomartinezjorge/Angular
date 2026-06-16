@@ -1,45 +1,182 @@
-# Especificação de Requisitos de Software (SRS)
-**Projeto:** Plataforma RH
-**Versão:** 1.0
-**Data:** 2 de Junho de 2026
+# Plataforma RH - Vagas e Curriculos
 
-## 1. Introdução
-### 1.1 Propósito
-Este documento descreve os requisitos funcionais e não funcionais para o Módulo de Currículos e Vagas da Plataforma de RH. O objetivo deste módulo é permitir que candidatos gerenciem suas informações profissionais e que a administração visualize esses dados.
+Aplicacao Angular para uma plataforma de RH com cadastro, listagem, edicao e exclusao de vagas e curriculos. O backend e simulado com `json-server`, usando o arquivo `backend/db.json`.
 
-### 1.2 Escopo
-O sistema compreende o desenvolvimento de uma interface frontend em Angular integrada a um backend simulado (json-server). As funcionalidades incluem o CRUD completo de currículos, vinculação de dados por ID de usuário e interface administrativa para gestão.
+## Tecnologias
 
----
+- Angular 21
+- TypeScript
+- RxJS
+- Reactive Forms e Template-driven Forms
+- json-server
+- SCSS
 
-## 2. Descrição Geral
+## Funcionalidades
+
+### Vagas
+
+- Listagem de vagas disponiveis.
+- Painel administrativo para cadastrar vagas.
+- Edicao de vagas cadastradas.
+- Exclusao de vagas cadastradas.
+- Dados persistidos no `json-server`.
+
+### Curriculos
+
+- Cadastro de curriculo com:
+  - usuarioId
+  - nome
+  - email
+  - telefone
+  - cargo desejado
+  - foto
+  - descricao profissional
+  - formacao
+  - experiencia
+  - habilidades
+  - LinkedIn
+  - pretensao salarial
+- Edicao de curriculo existente.
+- Visualizacao do proprio curriculo em `/meu-curriculo`.
+- Listagem simulada de candidatos para empresas em `/curriculos`.
+- Tela de detalhes de curriculo.
+- Exclusao de curriculos.
+
+## Estrutura Principal
+
+```text
+backend/
+  db.json
+
+src/app/
+  model/
+    curriculo.model.ts
+    vaga.model.ts
+
+  service/
+    apiservice.ts
+
+  view/
+    curriculos/
+      curriculo-form/
+      curriculo-list/
+      curriculo-detail/
+    fragmentos/
+      header/
+      footer/
+    home/
+    painel-vagas/
+    vagas/
+```
+
+## Rotas
+
+| Rota | Funcao |
+| --- | --- |
+| `/` | Tela inicial |
+| `/vagas` | Lista de vagas |
+| `/painel-vagas` | CRUD de vagas |
+| `/meu-curriculo` | Curriculo do usuario simulado |
+| `/curriculos` | Lista de curriculos para empresas |
+| `/curriculos/novo` | Cadastro de curriculo |
+| `/curriculos/editar/:id` | Edicao de curriculo |
+| `/curriculos/:id` | Detalhes de curriculo |
+
+## Como Rodar
+
+Instale as dependencias:
+
+```powershell
+npm install
+```
+
+### Rodar tudo com um comando
+
+No Windows, use:
+
+```powershell
+npm run dev
+```
+
+Esse comando abre dois terminais: um para o Angular e outro para o `json-server`.
 
 
+## Importante
 
+Os botoes de cadastrar, atualizar, excluir e listar dados dependem do `json-server`.
 
-## 3. Requistos do Sistema 
+Se o backend nao estiver rodando, a aplicacao pode mostrar mensagens como:
 
-### 3.1 Requistos Funcionais (RF)
+```text
+Nao foi possivel listar/cadastrar/atualizar. Verifique se o json-server esta rodando.
+```
 
-### 3.2 Requsitos Não-Funcionais (RNF)
+## Endpoints do Backend
 
-## 4. Interface de Dados e Modelagem do Sistema
+Com o `json-server` rodando:
 
-### 4.1 Diagramas
+```text
+http://localhost:3020/vagas
+http://localhost:3020/curriculos
+```
 
-#### 4.1.1 Diagrama de Uso
+Exemplo de filtro por usuario:
 
-#### 4.1.2 Diagrama de Classe
+```text
+http://localhost:3020/curriculos?usuarioId=1
+```
 
-#### 4.1.1 Diagrama de Fluxo
+## Scripts
 
-## 5. Critérios de Aceitação
+```powershell
+npm start
+```
 
-1.  **Operação CRUD:** É possível criar, ler, atualizar e excluir um registro no `db.json` através da interface?
-2.  **Navegação:** As rotas configuradas levam aos componentes corretos sem erros de console?
-3.  **Feedback:** O usuário recebe uma confirmação (ex: MatSnackBar) ao salvar um currículo?
-4.  **Consistência:** Os dados exibidos na listagem correspondem exatamente ao que está no backend simulado?
+Inicia o Angular.
 
-## 6. Configuração do Ambiente
+```powershell
+npm run server
+```
 
+Inicia o `json-server` usando `backend/db.json`.
 
+```powershell
+npm run dev
+```
+
+Inicia Angular e `json-server` em dois terminais.
+
+```powershell
+npm run build
+```
+
+Gera a build do projeto.
+
+```powershell
+npm test -- --watch=false
+```
+
+Executa os testes uma vez.
+
+## Validacao
+
+Antes de entregar ou testar manualmente, rode:
+
+```powershell
+npm run build
+npm test -- --watch=false
+```
+
+Resultado esperado:
+
+```text
+Build concluido sem erros.
+Testes passando.
+```
+
+## Observacoes de Desenvolvimento
+
+- O servico HTTP principal esta em `src/app/service/apiservice.ts`.
+- O antigo caminho `src/app/core/services/curriculo.service.ts` nao e mais usado.
+- O usuario logado e simulado com `usuarioId = 1`.
+- Os dados iniciais ficam em `backend/db.json`.
