@@ -1,4 +1,4 @@
-import { Vaga } from './vagamodel';
+import { Vaga } from './vaga.model';
 
 describe('Vaga', () => {
   it('should create an instance', () => {

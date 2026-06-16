@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "server": "json-server backend/db.json --port 3020",
+    "dev": "start \"json-server\" cmd /k \"npm run server\" && start \"angular\" cmd /k \"npm start\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

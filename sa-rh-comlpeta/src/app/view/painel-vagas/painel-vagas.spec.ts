@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { Apiservice } from '../../service/apiservice';
 
 import { PainelVagas } from './painel-vagas';
 
@@ -9,6 +11,17 @@ describe('PainelVagas', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PainelVagas],
+      providers: [
+        {
+          provide: Apiservice,
+          useValue: {
+            getVagas: () => of([]),
+            postVaga: () => of([]),
+            putVaga: () => of([]),
+            deleteVaga: () => of([]),
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PainelVagas);

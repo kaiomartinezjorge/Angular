@@ -1,53 +1,54 @@
 .listar-vagas {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 2rem 1rem;
-  max-width: 1200px;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 1rem;
 
   .card {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #d9e2ef;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 28px rgba(36, 48, 68, 0.08);
+    height: 100%;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3 ease;
-    width: 18rem;
-    margin: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 34px rgba(36, 48, 68, 0.14);
+      transform: translateY(-4px);
     }
 
     img {
-      width: 100%;
       height: 150px;
       object-fit: cover;
-      border-bottom: 1px solid #aaa;
+      width: 100%;
     }
 
     .card-body {
+      display: grid;
+      gap: 0.6rem;
       padding: 1rem;
 
       h5.card-title {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        color: #243044;
+        font-size: 1.05rem;
         line-height: 1.2;
+        margin: 0;
       }
 
       p.card-text {
-        font-size: 0.9rem;
-        color: #555;
+        color: #526173;
+        font-size: 0.92rem;
         line-height: 1.4;
-        margin-bottom: 0.5rem;
+        margin: 0;
       }
 
       p.card-text:last-child {
-        margin-bottom: 0; //remove a margem inferior do último parágrafo
+        color: #00613f;
+        font-weight: bold;
       }
     }
   }
-
 }

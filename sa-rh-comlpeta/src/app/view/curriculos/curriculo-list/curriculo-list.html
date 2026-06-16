@@ -1,0 +1,38 @@
+<section class="curriculo-list">
+  <div class="list-header">
+    <div>
+      <h2>{{ meuCurriculo ? 'Meu Curriculo' : 'Curriculos de Candidatos' }}</h2>
+      <p>{{ meuCurriculo ? 'Visualize e gerencie seu curriculo cadastrado.' : 'Listagem simulada para empresas visualizarem candidatos.' }}</p>
+    </div>
+
+    <a class="primary-action" routerLink="/curriculos/novo">Novo curriculo</a>
+  </div>
+
+  <div class="cards">
+    @for (item of curriculos; track item.id) {
+      <article class="card">
+        <img src="assets/img/vagas/{{ item.foto }}" alt="Foto do candidato">
+
+        <div class="card-body">
+          <h3>{{ item.nome }}</h3>
+          <strong>{{ item.cargo }}</strong>
+          <p>{{ item.descricao }}</p>
+          <p>Habilidades: {{ item.habilidades }}</p>
+          <p>
+            LinkedIn:
+            <a class="profile-link" [href]="item.linkedin" target="_blank" rel="noopener">Acessar perfil</a>
+          </p>
+          <p>Pretensao salarial: R$ {{ item.salario }}</p>
+
+          <div class="actions">
+            <a [routerLink]="['/curriculos', item.id]">Detalhes</a>
+            <a [routerLink]="['/curriculos/editar', item.id]">Editar</a>
+            <button type="button" (click)="excluirCurriculo(item.id)">Excluir</button>
+          </div>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty">Nenhum curriculo encontrado.</p>
+    }
+  </div>
+</section>

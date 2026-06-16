@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Apiservice } from '../../service/apiservice';
 import { Vaga } from '../../model/vaga.model';
+import { Apiservice } from '../../service/apiservice';
 
 @Component({
   selector: 'app-vagas',
@@ -9,29 +9,22 @@ import { Vaga } from '../../model/vaga.model';
   styleUrl: './vagas.scss',
 })
 export class Vagas implements OnInit {
-  //atributos
-  //vetor para receber todas as vagas da api
   public vagas: Vaga[] = [];
 
-  constructor(private _apiService: Apiservice) {} // ao abrir a página , estabele conexão com api
+  constructor(private _apiService: Apiservice) {}
 
-  // método para conectar com API
+  ngOnInit(): void {
+    this.listarVagas();
+  }
 
   listarVagas(): void {
-    //preencher o vetor comas informações da API
-    this._apiService.getVagas().subscribe(// Subscribe => Ferramenta do observable para fazer conexão assincrona
-      //mapeamento de Dados
-      (resposta) => {
+    this._apiService.getVagas().subscribe({
+      next: (resposta) => {
         this.vagas = resposta.map(
           (e) => new Vaga(e.id, e.nome, e.foto, e.descricao, e.salario)
         );
       },
-    );
-  }
-
-  //Método para carregamento ao iniciar a tela
-
-  ngOnInit(): void {
-    this.listarVagas();
+      error: () => alert('Nao foi possivel listar as vagas. Verifique se o json-server esta rodando.'),
+    });
   }
 }

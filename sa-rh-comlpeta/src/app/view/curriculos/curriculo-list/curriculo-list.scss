@@ -1,0 +1,146 @@
+.curriculo-list {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+
+  .list-header {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      color: #243044;
+      font-size: 1.8rem;
+      margin: 0 0 0.4rem;
+    }
+
+    p {
+      color: #526173;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .primary-action,
+  .actions a,
+  .actions button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.65rem 0.85rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .primary-action {
+    background-color: #006edb;
+    box-shadow: 0 8px 18px rgba(0, 110, 219, 0.18);
+    color: #fff;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+  }
+
+  .cards {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .card {
+    background-color: #fff;
+    border: 1px solid #d9e2ef;
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(36, 48, 68, 0.08);
+    overflow: hidden;
+  }
+
+  img {
+    height: 160px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-body {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1rem;
+
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      color: #243044;
+      font-size: 1.25rem;
+    }
+
+    strong {
+      color: #006edb;
+    }
+
+    p {
+      color: #526173;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .profile-link {
+      color: #0056b3;
+      font-weight: bold;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+    a {
+      background-color: #e8f2ff;
+      color: #0056b3;
+
+      &:hover {
+        background-color: #d7eaff;
+      }
+    }
+
+    button {
+      background-color: #f9e8e8;
+      color: #9b1c1c;
+
+      &:hover {
+        background-color: #f4d2d2;
+      }
+    }
+  }
+
+  .empty {
+    background-color: #fff;
+    border: 1px dashed #b8c7da;
+    border-radius: 8px;
+    color: #526173;
+    font-size: 1rem;
+    padding: 2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .curriculo-list {
+    .list-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}

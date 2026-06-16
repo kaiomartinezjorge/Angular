@@ -1,0 +1,54 @@
+@if (curriculo) {
+  <section class="curriculo-detail">
+    <div class="profile">
+      <img src="assets/img/vagas/{{ curriculo.foto }}" alt="Foto do candidato">
+
+      <div>
+        <h2>{{ curriculo.nome }}</h2>
+        <strong>{{ curriculo.cargo }}</strong>
+        <p>{{ curriculo.email }} | {{ curriculo.telefone }}</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <article>
+        <h3>Resumo</h3>
+        <p>{{ curriculo.descricao }}</p>
+      </article>
+
+      <article>
+        <h3>Formacao</h3>
+        <p>{{ curriculo.formacao }}</p>
+      </article>
+
+      <article>
+        <h3>Experiencia</h3>
+        <p>{{ curriculo.experiencia }}</p>
+      </article>
+
+      <article>
+        <h3>Habilidades</h3>
+        <p>{{ curriculo.habilidades }}</p>
+      </article>
+
+      <article>
+        <h3>LinkedIn</h3>
+        <p>
+          <a [href]="curriculo.linkedin" target="_blank" rel="noopener">{{ curriculo.linkedin }}</a>
+        </p>
+      </article>
+
+      <article>
+        <h3>Pretensao salarial</h3>
+        <p>R$ {{ curriculo.salario }}</p>
+      </article>
+    </div>
+
+    <div class="actions">
+      <a routerLink="/curriculos">Voltar</a>
+      <a [routerLink]="['/curriculos/editar', curriculo.id]">Editar</a>
+    </div>
+  </section>
+} @else {
+  <p class="loading">Carregando curriculo...</p>
+}

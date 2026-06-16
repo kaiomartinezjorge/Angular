@@ -16,7 +16,7 @@ export class Vaga {
 
   //construtor encurtado
   constructor(
-    public id: number = 0,
+    public id: any = '',
     public nome: string = '',
     public foto: string = '',
     public descricao: string = '',

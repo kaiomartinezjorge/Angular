@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { Apiservice } from '../../service/apiservice';
 
 import { Curriculos } from './curriculos';
 
@@ -9,6 +11,14 @@ describe('Curriculos', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Curriculos],
+      providers: [
+        {
+          provide: Apiservice,
+          useValue: {
+            getCurriculos: () => of([]),
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Curriculos);

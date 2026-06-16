@@ -1,0 +1,100 @@
+<section class="curriculo-form">
+  <h2>{{ editando ? 'Editar Curriculo' : 'Cadastrar Curriculo' }}</h2>
+
+  <form [formGroup]="curriculoForm" (ngSubmit)="salvarCurriculo()">
+    <label>
+      Usuario ID
+      <input type="number" formControlName="usuarioId">
+    </label>
+
+    <label>
+      Nome
+      <input type="text" formControlName="nome">
+      @if (campoInvalido('nome')) {
+        <small>Informe o nome do candidato.</small>
+      }
+    </label>
+
+    <label>
+      Email
+      <input type="email" formControlName="email">
+      @if (campoInvalido('email')) {
+        <small>Informe um email valido.</small>
+      }
+    </label>
+
+    <label>
+      Telefone
+      <input type="text" formControlName="telefone">
+      @if (campoInvalido('telefone')) {
+        <small>Informe um telefone para contato.</small>
+      }
+    </label>
+
+    <label>
+      Cargo desejado
+      <input type="text" formControlName="cargo">
+      @if (campoInvalido('cargo')) {
+        <small>Informe o cargo desejado.</small>
+      }
+    </label>
+
+    <label>
+      Foto
+      <input type="text" formControlName="foto">
+    </label>
+
+    <label>
+      Descricao
+      <textarea rows="3" formControlName="descricao"></textarea>
+      @if (campoInvalido('descricao')) {
+        <small>Informe um resumo profissional.</small>
+      }
+    </label>
+
+    <label>
+      Formacao
+      <textarea rows="3" formControlName="formacao"></textarea>
+      @if (campoInvalido('formacao')) {
+        <small>Informe a formacao.</small>
+      }
+    </label>
+
+    <label>
+      Experiencia
+      <textarea rows="4" formControlName="experiencia"></textarea>
+      @if (campoInvalido('experiencia')) {
+        <small>Informe a experiencia profissional.</small>
+      }
+    </label>
+
+    <label>
+      Habilidades
+      <textarea rows="3" formControlName="habilidades"></textarea>
+      @if (campoInvalido('habilidades')) {
+        <small>Informe as principais habilidades.</small>
+      }
+    </label>
+
+    <label>
+      LinkedIn
+      <input type="url" formControlName="linkedin">
+      @if (campoInvalido('linkedin')) {
+        <small>Informe o link do LinkedIn.</small>
+      }
+    </label>
+
+    <label>
+      Pretensao salarial
+      <input type="number" formControlName="salario">
+      @if (campoInvalido('salario')) {
+        <small>Informe a pretensao salarial.</small>
+      }
+    </label>
+
+    <div class="actions">
+      <button type="submit">{{ editando ? 'Atualizar curriculo' : 'Cadastrar curriculo' }}</button>
+      <a routerLink="/meu-curriculo">Cancelar</a>
+    </div>
+  </form>
+</section>

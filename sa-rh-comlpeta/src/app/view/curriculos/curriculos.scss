@@ -1,142 +1,42 @@
-//estilização de painel de vagas
-//declaração de variaveis
-$primaria: #0000ff;
-$secundaria: #999;
-$sucesso: #00ff00;
-$alerta: #ff0000;
-$aviso: #ffff00;
-
-h2 {
-  text-align: center;
-  padding: 20px;
-  color: #555;
-}
-
-form {
-  max-width: 800px;
+.listar-curriculos {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   margin: 0 auto;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba($color: #000000, $alpha: 0.1); // sobra cinza no form
+  max-width: 1200px;
+  padding: 2rem 1rem;
 
-  label {
-    display: block;
-    margin-bottom: 1rem;
-    color: #333;
-    font-size: 1rem;
-  }
+  .card {
+    background-color: #fff;
+    border: 1px solid #d9e2ef;
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(36, 48, 68, 0.08);
+    overflow: hidden;
 
-  input {
-    width: calc(100% - 40px);
-    padding: 1rem 10px;
-    margin-bottom: 1.5rem;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    font-size: 1rem;
-
-    &:focus {
-      outline: nome;
-      border-color: $primaria;
-      box-shadow: 0 4px 16px rgba($color: #000000, $alpha: 0.1);
+    img {
+      height: 150px;
+      object-fit: cover;
+      width: 100%;
     }
-  }
 
-  button {
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    margin-right: 1rem;
+    .card-body {
+      display: grid;
+      gap: 0.6rem;
+      padding: 1rem;
 
-    &[type="button"]:nth-of-type(1) {
-      //para o primeiro button do typo button
-      background-color: $secundaria;
-
-      &:hover {
-        background-color: darken($color: $sucesso, $amount: 10%);
+      h5.card-title {
+        color: #243044;
+        font-size: 1.05rem;
+        line-height: 1.2;
+        margin: 0;
       }
-    }
 
-    &[type="button"]:nth-of-type(2) {
-      //para o primeiro button do typo button
-      background-color: $secundaria;
-
-      &:hover {
-        background-color: darken($color: $aviso, $amount: 10%);
-      }
-    }
-
-    &[type="button"]:nth-of-type(3) {
-      //para o primeiro button do typo button
-      background-color: $secundaria;
-
-      &:hover {
-        background-color: darken($color: $alerta, $amount: 10%);
+      p.card-text {
+        color: #526173;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        margin: 0;
       }
     }
   }
 }
-
-//fim da estilização do formulário
-
-//estilização da tabela
-
-//estilização da tabela
-section {
-  max-width: 1300px;
-  margin: 10px auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-
-    th {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #aaa;
-      vertical-align: middle;
-      color: #555;
-    }
-
-    thead {
-      background-color: #999;
-
-      th {
-        color: #222;
-        font-weight: bold;
-      }
-    }
-
-    tbody {
-      tr {
-        &:hover {
-          background-color: #999;
-        }
-      }
-
-      button {
-        border: none;
-        background-color: $secundaria;
-        padding: 5px;
-        cursor: pointer;
-        border-radius: 5px;
-
-        &:hover {
-          background-color: darken($color: $aviso, $amount: 10%);
-        }
-      }
-    }
-  }
-}
-
-//fim da tabela
